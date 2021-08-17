@@ -8,6 +8,17 @@
 
 
 from appium import webdriver
+import os
+
+
+def get_usbconnect_device():
+    cmd = "tidevice list"
+    result = os.popen(cmd).readlines()
+    udid, name = result[0].strip().split()
+    return udid, name
+
+
+device_udid, device_name = get_usbconnect_device()
 
 
 class Driver:
@@ -15,9 +26,8 @@ class Driver:
         desired_cap = {
             "automationName": "XCUITest",
             "platformName": "iOS",
-            "udid": "292e1b66e02402ecbd66c1a3321fa55817b7ea21",
+            "udid": device_udid,
             "appName": "Filto",
-            "deviceName": "iPhone6s"
+            "deviceName": device_name
         }
         self.instance = webdriver.Remote('http://localhost:4723/wd/hub', desired_cap)
-
