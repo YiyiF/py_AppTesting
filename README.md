@@ -12,7 +12,7 @@
     pip3 install -U tidevice
     tidevice list
     ```
-    - 之后会添加自动获取连接的设备信息的方法到webdriver.py中
+    - ~~之后会添加自动获取连接的设备信息的方法到webdriver.py中~~ 已添加
  
  3. 执行测试用例 py_AppTesting/tests/test_trial.py
  
