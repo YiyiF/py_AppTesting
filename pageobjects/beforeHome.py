@@ -82,33 +82,3 @@ class FiltoSplash:
 
 
 
-
-
-
-
-
-    def clicknumber(self, num):
-        _num = str(num)
-        self.driver.instance.find_element(MobileBy.ID, 'com.android.calculator2:id/digit_' + _num).click()
-        assert _num in self.number.text, 'Result is different from input.'
-
-    def plusdo(self, num1, num2):
-        self.clicknumber(num1)
-        self.plus.click()
-        self.clicknumber(num2)
-
-        result = sum((num1, num2))
-        calcResult = int(self.result.text)
-
-        assert result == calcResult, 'Result is different from python.'
-
-    def multiplydo(self, num1, num2):
-        self.clicknumber(num1)
-        self.multiply.click()
-        self.clicknumber(num2)
-
-        result = num1 * num2
-        calcResult = int(self.result.text)
-
-        assert result == calcResult, 'Result is different from python.'
-

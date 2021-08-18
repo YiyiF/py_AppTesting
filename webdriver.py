@@ -14,7 +14,7 @@ import os
 def get_usbconnect_device():
     cmd = "tidevice list"
     result = os.popen(cmd).readlines()
-    udid, name = result[0].strip().split()
+    udid, name = result[0].strip().split(' ', 1)
     return udid, name
 
 
@@ -28,6 +28,7 @@ class Driver:
             "platformName": "iOS",
             "udid": device_udid,
             "appName": "Filto",
+            "bundleId": "com.pinsotech.filto",
             "deviceName": device_name
         }
         self.instance = webdriver.Remote('http://localhost:4723/wd/hub', desired_cap)

@@ -33,6 +33,8 @@ class FiltoHome:
         self.homePlusBtn = WebDriverWait(self.driver.instance, 10).until(EC.presence_of_element_located((
             MobileBy.ACCESSIBILITY_ID, 'filto other 300 07'
         )))
+
+        # Find element by StaticText: Language-> EN
         self.homeMineTab = WebDriverWait(self.driver.instance, 10).until(EC.presence_of_element_located((
             MobileBy.XPATH, '//XCUIElementTypeStaticText[@name=\"Mine\"]'
         )))
